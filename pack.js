@@ -54,17 +54,22 @@ function makeTable(document1, response)
 			var damage = response.overrides[i].predicate.damage
 			
 			var dValue = damage * maxDurability
+			
+			var command = "/minecraft:give @p minecraft:" + getUrlVars()["item"] + " 1 " + Math.round(dValue) + " {Unbreakable:1}"
 			if (search == undefined || model.search(decodeURI(search)) !== -1) {
 				if (model !== "item/" + getUrlVars()["item"]) {
 				
 					var tr = table.appendChild(document.createElement("tr"));
 					var td = tr.appendChild(document.createElement("td"))
 					var td1 = tr.appendChild(document.createElement("td"))
+					var td2 = tr.appendChild(document.createElement("td"))
 					tr.setAttribute("align", "center")
 					td.appendChild(document.createTextNode(model));
 					td.setAttribute("align", "center");
 					td1.appendChild(document.createTextNode(Math.round(dValue)));
 					td1.setAttribute("align", "center");
+					td2.appendChild(document.createTextNode(command));
+					td2.setAttribute("align", "center");
 					//tda.setAttribute("")
 					//document1.getElementById("stuff").innerHTML("<li>" + response[i].assets.browser_download_url/*browser_download_url*/ +
 					//"</li>");
