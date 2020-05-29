@@ -10,16 +10,56 @@
 </head>
 
 <body class="w3-theme-l1">
+<h1 id="title" width="75%" align="center"><center>MCParks Resource Pack Look-up</center></h1>
+<div class="w3-center">
+	<h3>Branch</h3><br>
+	<select id="branch">
+        <option value="master">Beta</option>
+		<option value="release">Release</option>
+	</select><br>
+	
+	<h3>Type</h3><br>
+	<select id="type">
+		<option value="golden">Gold</option>
+		<option value="wooden">Wood</option>
+		<option value="stone">Stone</option>
+		<option value="iron">Iron</option>
+		<option value="diamond">Diamond</option>
+	</select><br>
+	
+	<h3>Tool</h3><br>
+	<select id="tool">
+		<option value="hoe">Hoe</option>
+		<option value="axe">Axe</option>
+		<option value="sword">Sword</option>
+		<option value="pickaxe">Pickaxe</option>
+		<option value="shovel">Shovel</option>
+	</select><br>
+	
+	<h3>Search Query</h3><br>
+	<input type="text" name="search" id="search" placeholder="Search Query"><br>
+	
+	<h3>Submit</h3><br>
+	<input type="button" onclick="submit();" value="Submit">
+	
+	<script>
+	
+	function submit()
+	{
+		var branch = document.getElementById("branch").value;
+	
+	var type = document.getElementById("type").value;
+	
+	var tool = document.getElementById("tool").value;
+	
+	var search = document.getElementById("search").value;
+	
+	
+	document.location = "query/?branch="+ branch + "&item=" + type + "_" + tool + "&search=" + search;
+	}
 
-<h1 id="downloads" width="75%" align="center"><center>MCParks Resource Pack Damages </center></h3>
-<table id="stuff" width="75%" align="center">
-<tr>
-	<th>Model</th>
-	<th>Damage Value</th>
-	<th>Give Command</th>
-</tr>
-</table>
-<script src="pack.js"></script>
+	</script>
+	</div>
 
 
 </body>
