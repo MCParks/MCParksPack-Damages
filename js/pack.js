@@ -11,7 +11,7 @@ var maxDurability;
 if (getUrlVars()["item"].startsWith("gold")) maxDurability = 32;
 else if (getUrlVars()["item"].startsWith("wood")) maxDurability = 59
 else if (getUrlVars()["item"].startsWith("stone")) maxDurability = 131
-else if (getUrlVars()["item"].startsWith("iron")) maxDurability = 250
+else if (getUrlVars()["item"].startsWith("iron")) maxDurability = 251
 else if (getUrlVars()["item"].startsWith("diamond")) maxDurability = 1561
 
 
