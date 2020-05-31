@@ -9,41 +9,66 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
 </head>
 
-<body class="w3-theme-l1">
+<body class="w3-theme-l1" onload="document.searchQuery.branch.value=this.branch.value; document.typeToolQuery.branch.value=this.branch.value;">
 <h1 id="title" width="75%" align="center"><center>MCParks Resource Pack Look-up</center></h1>
 <div class="w3-center">
-	<h3>Branch</h3><br>
-	<select id="branch">
-        <option value="master">Beta</option>
-		<option value="release">Release</option>
-	</select><br>
+	<h3>Branch</h3>
+	<p>Select 'Release' for the pack currently available for guests, or 'Beta' for the most up-to-date from GitHub</p>
+	<form autocomplete="off">
+		<select id="branch"
+			name="branch"
+			onblur="document.searchQuery.branch.value=this.value; document.typeToolQuery.branch.value=this.value;"
+			value="master">
+			<option value="master">Beta</option>
+			<option value="release">Release</option>
+		</select>
+	</form>
 	
-	<h3>Type</h3><br>
-	<select id="type">
-		<option value="golden">Gold</option>
-		<option value="wooden">Wood</option>
-		<option value="stone">Stone</option>
-		<option value="iron">Iron</option>
-		<option value="diamond">Diamond</option>
-	</select><br>
+	<br><br><br><br>
 	
-	<h3>Tool</h3><br>
-	<select id="tool">
-		<option value="hoe">Hoe</option>
-		<option value="axe">Axe</option>
-		<option value="sword">Sword</option>
-		<option value="pickaxe">Pickaxe</option>
-		<option value="shovel">Shovel</option>
-	</select><br>
+
+	<h2>Search for an item:</h2>
+	<p>Type in keywords to find an item</p>
+	<form action="query/index.html" name="searchQuery" autocomplete="off">
+		<input type="hidden" name="branch"  />
+		<input type="text" name="search" id="search" placeholder="Search Query"><input type="submit" value="Search">
+	</form>
 	
-	<h3>Search Query</h3><br>
-	<input type="text" name="search" id="search" placeholder="Search Query"><br>
 	
-	<h3>Submit</h3><br>
-	<input type="button" onclick="submit();" value="Submit">
+	
+	<br><br>
+	
+	<h2>Or, select an item to view all its contents:</h2>
+	
+	<form action="query/index.html" name="typeToolQuery" autocomplete="off">
+
+		<input type="hidden" name="branch"  />
+
+		<select id="type" name="type">
+			<option value="golden">Gold</option>
+			<option value="wooden">Wood</option>
+			<option value="stone">Stone</option>
+			<option value="iron" selected="selected">Iron</option>
+			<option value="diamond">Diamond</option>
+		</select>
+		
+		
+		<select id="tool" name="tool">
+			<option value="hoe">Hoe</option>
+			<option value="axe" selected="selected">Axe</option>
+			<option value="sword">Sword</option>
+			<option value="pickaxe">Pickaxe</option>
+			<option value="shovel">Shovel</option>
+		</select><br><br>
+
+		<input type="submit" value="View Item">
+	</form>
+	
+	
 	
 	<script>
 	
+
 	function submit()
 	{
 		var branch = document.getElementById("branch").value;
